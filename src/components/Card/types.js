@@ -6,6 +6,7 @@ export type CardType = {
   type: string,
   setName: string,
   imageUrl: string,
+  onPress: Function,
 };
 
 type CardColor = 'White' | 'Blue' | 'Black' | 'Red' | 'Green';

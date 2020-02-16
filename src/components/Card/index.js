@@ -12,10 +12,12 @@ const Card: (card: CardType) => React$Node = ({
   type,
   setName,
   imageUrl,
+  onPress,
 }) => {
   return (
     <ListItem
       containerStyle={styles.container}
+      onPress={onPress}
       title={`${name} | ${type}`}
       subtitle={
         <View style={styles.subtitleContainer}>
