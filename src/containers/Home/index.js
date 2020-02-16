@@ -19,6 +19,7 @@ const Home: () => React$Node = () => {
   const [currentPage, setCurrentPage] = React.useState(0);
   const [selectedCardImgUrl, setSelectedCardImgUrl] = React.useState('');
   const [modalVisible, setModalVisible] = React.useState(false);
+  const [modalImgLoaded, setModalImgLoaded] = React.useState(false);
   const getCardsRequest = () => {
     fetchCardsOnPage(currentPage)
       .then(response => response.json())
@@ -52,6 +53,9 @@ const Home: () => React$Node = () => {
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
         uri={selectedCardImgUrl}
+        onLoadEnd={() => setModalImgLoaded(true)}
+        onLoadStart={() => setModalImgLoaded(false)}
+        imgLoaded={modalImgLoaded}
       />
       <FlatList
         showsVerticalScrollIndicator={false}

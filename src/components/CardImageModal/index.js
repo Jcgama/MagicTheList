@@ -1,16 +1,28 @@
+//@flow
+//@format
 import React from 'react';
-import {Modal, Image, View} from 'react-native';
+import {Modal, Image, View, Text} from 'react-native';
 import {Button} from 'react-native-elements';
 import styles from './styles';
-const CardImageModal = ({visible, onRequestClose, uri}) => (
+import type {CardImageModalProps} from './types';
+const CardImageModal: CardImageModalProps => React$Node = ({
+  visible,
+  onRequestClose,
+  uri,
+  onLoadStart,
+  onLoadEnd,
+  imgLoaded,
+}: CardImageModalProps) => (
   <Modal
     animationType="slide"
     visible={visible}
     transparent={true}
     onRequestClose={onRequestClose}>
     <View style={styles.container}>
+      {!imgLoaded && <Text style={styles.loadingText}>Carregando...</Text>}
       <Image
-        onLoad={() => console.log('hmmmmm')}
+        onLoadStart={onLoadStart}
+        onLoadEnd={onLoadEnd}
         style={styles.image}
         source={{
           uri: uri,

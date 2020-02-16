@@ -8,13 +8,19 @@ export default StyleSheet.create({
     backgroundColor: '#2e2e2e',
   },
   image: {
-    height: Dimensions.get('window').height - 140,
-    width: Dimensions.get('window').width - 60,
+    height: 440,
+    width: 300,
   },
   buttonBg: {
     backgroundColor: '#ffffff',
   },
   buttonTitle: {
     color: '#000000',
+  },
+  loadingText: {
+    color: '#ffffff',
+    fontSize: 24,
+    position: 'absolute',
+    top: Dimensions.get('window').height / 2,
   },
 });
